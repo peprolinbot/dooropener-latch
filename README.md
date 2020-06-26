@@ -2,7 +2,7 @@
 Opens a door(actions a relay on a RPI) with Latch(https://latch.elevenpaths.com) when someones unlocks the latch.
 This is made with python3 and latch's SDK for python.
 That's practically everything.
-#Setup
+## Setup
 For setting up you need a Latch's developer account create it on it's webpage.
 Now create an application with the "Block after conuslting" option in mandatory.
 Copy your appId and secret into their respectives strings in the file config/latch.py, create it if it doesn't exist.
