@@ -13,7 +13,7 @@ GPIO.output(17, GPIO.HIGH)
 
 def doorButton():
     GPIO.output(17, GPIO.LOW)
-    sleep(0.1)
+    sleep(0.5)
     GPIO.output(17, GPIO.HIGH)
 
 def openDoor():
@@ -27,9 +27,12 @@ with open('config/accounts.txt', 'r') as f:
 while True:
     for id in accountIds:
         response = api.status(id)
+        if response == None:
+            print("Connection error")
+            continue
         responseData = response.get_data()
         status = responseData['operations'][config.latch.appId]['status']
         if status == "on":
-            print("Abriendo puerta...")
+            print("Opening door...")
             openDoor()
 
